@@ -8,9 +8,32 @@
       margin: 0;
       padding: 0;
       height: 100%;
+      /* 背景画像を設定 */
+      background: url("https://i.pinimg.com/736x/6f/c4/90/6fc490be1996aaf3177a6c9e19d5bd00.jpg") no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      overflow: hidden;
     }
+    /* 虹色グラデーションのオーバーレイ */
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /* 基本のグラデーション */
+      background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+      opacity: 0.4; /* お好みで調整 */
+      animation: rainbow 10s linear infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+    /* 中央に配置するコンテナ */
     .container {
+      position: relative;
+      z-index: 2;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100%;
@@ -21,11 +44,25 @@
       border-radius: 50%; /* 円形にする */
       object-fit: cover;  /* 画像のアスペクト比を維持 */
     }
+    .text {
+      margin-top: 20px;
+      font-family: "MS 明朝", "ヒラギノ明朝 ProN", "游明朝体", serif;
+      font-size: 24px;
+      color: #fff;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+    @keyframes rainbow {
+      0% { filter: hue-rotate(0deg); }
+      100% { filter: hue-rotate(360deg); }
+    }
   </style>
 </head>
 <body>
+  <!-- 虹色グラデーションオーバーレイ -->
+  <div class="overlay"></div>
   <div class="container">
     <img class="icon" src="https://cdn.discordapp.com/attachments/1130057179345457193/1352887431925469184/image.jpg?ex=67dfa61b&is=67de549b&hm=4a5638f278770d0c7d4c9dead0acf8c6adaf4cbe2429fc93b64eaf9ae2e16e04&" alt="プロフィールアイコン">
+    <div class="text">わいはや</div>
   </div>
 </body>
 </html>
